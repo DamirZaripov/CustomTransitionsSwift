@@ -8,30 +8,28 @@
 
 /* Begin PBXBuildFile section */
 		7CFFB2AA2084CF03001975A3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CFFB2A92084CF03001975A3 /* AppDelegate.swift */; };
-		7CFFB2AC2084CF03001975A3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CFFB2AB2084CF03001975A3 /* ViewController.swift */; };
 		7CFFB2AF2084CF03001975A3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7CFFB2AD2084CF03001975A3 /* Main.storyboard */; };
 		7CFFB2B12084CF04001975A3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7CFFB2B02084CF04001975A3 /* Assets.xcassets */; };
 		7CFFB2B42084CF04001975A3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7CFFB2B22084CF04001975A3 /* LaunchScreen.storyboard */; };
-		7CFFB2BC2084CF34001975A3 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CFFB2BB2084CF34001975A3 /* TableViewController.swift */; };
-		7CFFB2C22084CF7E001975A3 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CFFB2C02084CF7E001975A3 /* CustomTableViewCell.swift */; };
-		7CFFB2C32084CF7E001975A3 /* CustomTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7CFFB2C12084CF7E001975A3 /* CustomTableViewCell.xib */; };
-		7CFFB2C62084D334001975A3 /* CustomPopTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CFFB2C52084D334001975A3 /* CustomPopTransition.swift */; };
-		7CFFB2C82084D72E001975A3 /* CustomPopDismissTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CFFB2C72084D72E001975A3 /* CustomPopDismissTransition.swift */; };
+		FF62398D2092339C003C075F /* PhotoTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF62398C2092339C003C075F /* PhotoTransition.swift */; };
+		FFF9E69C2091FAAE004ED12E /* PhotoCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFF9E69B2091FAAE004ED12E /* PhotoCollectionViewController.swift */; };
+		FFF9E69F2091FE53004ED12E /* PhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFF9E69D2091FE53004ED12E /* PhotoCollectionViewCell.swift */; };
+		FFF9E6A02091FE53004ED12E /* PhotoCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FFF9E69E2091FE53004ED12E /* PhotoCollectionViewCell.xib */; };
+		FFF9E6A420922DDE004ED12E /* PhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFF9E6A320922DDE004ED12E /* PhotoViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		7CFFB2A62084CF03001975A3 /* CustomTransitionSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CustomTransitionSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7CFFB2A92084CF03001975A3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		7CFFB2AB2084CF03001975A3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		7CFFB2AE2084CF03001975A3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		7CFFB2B02084CF04001975A3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7CFFB2B32084CF04001975A3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7CFFB2B52084CF04001975A3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		7CFFB2BB2084CF34001975A3 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
-		7CFFB2C02084CF7E001975A3 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
-		7CFFB2C12084CF7E001975A3 /* CustomTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomTableViewCell.xib; sourceTree = "<group>"; };
-		7CFFB2C52084D334001975A3 /* CustomPopTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPopTransition.swift; sourceTree = "<group>"; };
-		7CFFB2C72084D72E001975A3 /* CustomPopDismissTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPopDismissTransition.swift; sourceTree = "<group>"; };
+		FF62398C2092339C003C075F /* PhotoTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoTransition.swift; sourceTree = "<group>"; };
+		FFF9E69B2091FAAE004ED12E /* PhotoCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCollectionViewController.swift; sourceTree = "<group>"; };
+		FFF9E69D2091FE53004ED12E /* PhotoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCollectionViewCell.swift; sourceTree = "<group>"; };
+		FFF9E69E2091FE53004ED12E /* PhotoCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhotoCollectionViewCell.xib; sourceTree = "<group>"; };
+		FFF9E6A320922DDE004ED12E /* PhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,8 +75,8 @@
 		7CFFB2BD2084CF53001975A3 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				7CFFB2AB2084CF03001975A3 /* ViewController.swift */,
-				7CFFB2BB2084CF34001975A3 /* TableViewController.swift */,
+				FFF9E69B2091FAAE004ED12E /* PhotoCollectionViewController.swift */,
+				FFF9E6A320922DDE004ED12E /* PhotoViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -96,8 +94,8 @@
 		7CFFB2BF2084CF6F001975A3 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
-				7CFFB2C02084CF7E001975A3 /* CustomTableViewCell.swift */,
-				7CFFB2C12084CF7E001975A3 /* CustomTableViewCell.xib */,
+				FFF9E69D2091FE53004ED12E /* PhotoCollectionViewCell.swift */,
+				FFF9E69E2091FE53004ED12E /* PhotoCollectionViewCell.xib */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -105,8 +103,7 @@
 		7CFFB2C42084D2F7001975A3 /* Transitions */ = {
 			isa = PBXGroup;
 			children = (
-				7CFFB2C52084D334001975A3 /* CustomPopTransition.swift */,
-				7CFFB2C72084D72E001975A3 /* CustomPopDismissTransition.swift */,
+				FF62398C2092339C003C075F /* PhotoTransition.swift */,
 			);
 			path = Transitions;
 			sourceTree = "<group>";
@@ -171,7 +168,7 @@
 			files = (
 				7CFFB2B42084CF04001975A3 /* LaunchScreen.storyboard in Resources */,
 				7CFFB2B12084CF04001975A3 /* Assets.xcassets in Resources */,
-				7CFFB2C32084CF7E001975A3 /* CustomTableViewCell.xib in Resources */,
+				FFF9E6A02091FE53004ED12E /* PhotoCollectionViewCell.xib in Resources */,
 				7CFFB2AF2084CF03001975A3 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -183,12 +180,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7CFFB2AC2084CF03001975A3 /* ViewController.swift in Sources */,
-				7CFFB2BC2084CF34001975A3 /* TableViewController.swift in Sources */,
-				7CFFB2C62084D334001975A3 /* CustomPopTransition.swift in Sources */,
-				7CFFB2C22084CF7E001975A3 /* CustomTableViewCell.swift in Sources */,
-				7CFFB2C82084D72E001975A3 /* CustomPopDismissTransition.swift in Sources */,
+				FFF9E69C2091FAAE004ED12E /* PhotoCollectionViewController.swift in Sources */,
+				FF62398D2092339C003C075F /* PhotoTransition.swift in Sources */,
+				FFF9E69F2091FE53004ED12E /* PhotoCollectionViewCell.swift in Sources */,
 				7CFFB2AA2084CF03001975A3 /* AppDelegate.swift in Sources */,
+				FFF9E6A420922DDE004ED12E /* PhotoViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
