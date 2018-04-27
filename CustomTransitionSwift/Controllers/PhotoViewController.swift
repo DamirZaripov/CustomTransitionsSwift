@@ -10,28 +10,36 @@ import UIKit
 
 class PhotoViewController: UIViewController {
 
-    @IBOutlet weak var photoImageVIiew: UIImageView!
+    @IBOutlet weak var photoImageView: UIImageView!
     var photo: UIImage!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupImageView(with: photo)
-        // Do any additional setup after loading the view.
+        initNavigationBar()
     }
 
     func setupImageView(with image: UIImage) {
-        photoImageVIiew.image = image
+        photoImageView.image = image
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    func initNavigationBar() {
+        navigationController?.setNavigationBarHidden(true, animated: true)
+        guard let navigationBarFrame = navigationController?.navigationBar.frame else { return }
+        let navigationBar = UINavigationBar(frame: navigationBarFrame)
+        navigationBar.setBackgroundImage(UIImage(), for: .default)
+        navigationBar.shadowImage = UIImage()
+        navigationBar.isTranslucent = true
+        self.view.addSubview(navigationBar)
+        let cancelButton = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(close))
+        let navigationBarItem = UINavigationItem(title: "Test")
+        navigationBarItem.leftBarButtonItem = cancelButton
+        navigationBar.setItems([navigationBarItem], animated: true)
     }
-    */
-
+    
+    @objc
+    func close() {
+        navigationController?.popViewController(animated: true)
+    }
+    
 }

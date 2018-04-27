@@ -10,6 +10,7 @@ import UIKit
 
 private let reuseIdentifier = "cell"
 private let photoSegueIdentifier = "photoSegue"
+private let photoCollectionViewCell = "PhotoCollectionViewCell"
 
 class PhotoCollectionViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout, UIViewControllerTransitioningDelegate {
 
@@ -29,10 +30,15 @@ class PhotoCollectionViewController: UICollectionViewController, UICollectionVie
         self.navigationController?.delegate = self
         prepareCollectionView()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(false, animated: true)
+    }
 
     func prepareCollectionView() {
         guard let collectionView = self.collectionView else { return }
-        let nib = UINib(nibName: "PhotoCollectionViewCell", bundle: nil)
+        let nib = UINib(nibName: photoCollectionViewCell, bundle: nil)
         collectionView.register(nib, forCellWithReuseIdentifier: reuseIdentifier)
     }
 
@@ -98,7 +104,7 @@ extension PhotoCollectionViewController: UINavigationControllerDelegate {
 
     func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationControllerOperation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
        
-        photoTransition.isPresenting = (operation == .push)
+        photoTransition.isPresenting = (operation == .pop)
         return photoTransition
     }
     

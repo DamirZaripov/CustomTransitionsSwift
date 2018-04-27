@@ -32,7 +32,7 @@
                     </collectionView>
                     <navigationItem key="navigationItem" id="TcE-gn-wzi"/>
                     <connections>
-                        <segue destination="mZi-Ch-BAw" kind="presentation" identifier="photoSegue" id="nH4-Oc-Rgf"/>
+                        <segue destination="mZi-Ch-BAw" kind="show" identifier="photoSegue" id="nH4-Oc-Rgf"/>
                     </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="liA-hl-LYx" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -48,7 +48,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="WfQ-AL-mDq">
-                                <rect key="frame" x="62" y="218.5" width="250" height="250"/>
+                                <rect key="frame" x="62" y="240.5" width="250" height="250"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="250" id="4M5-zx-u8W"/>
                                     <constraint firstAttribute="width" constant="250" id="VcP-24-KWL"/>
@@ -64,7 +64,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="Kuo-fO-KLc"/>
                     <connections>
-                        <outlet property="photoImageVIiew" destination="WfQ-AL-mDq" id="ypm-IR-KVC"/>
+                        <outlet property="photoImageView" destination="WfQ-AL-mDq" id="BYX-sT-xmY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3bl-k6-SZs" userLabel="First Responder" sceneMemberID="firstResponder"/>

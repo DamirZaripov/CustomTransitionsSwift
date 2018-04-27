@@ -22,8 +22,11 @@ class PhotoTransition: NSObject, UIViewControllerAnimatedTransitioning {
     
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
     
+        var photoImageViewFromVC: UIImageView!
+        
         guard let fromViewController = transitionContext.viewController(forKey: .from),
-            let toViewController = transitionContext.viewController(forKey: .to), var toVC = toViewController.view, var fromVC = fromViewController.view else { return }
+            let toViewController = transitionContext.viewController(forKey: .to),
+            let toVC = toViewController.view, let fromVC = fromViewController.view else { return }
         
         let containerView = transitionContext.containerView
         let photoImageView = UIImageView(frame: selectedFrame!)
@@ -32,27 +35,50 @@ class PhotoTransition: NSObject, UIViewControllerAnimatedTransitioning {
         let backgroundView = UIView(frame: UIScreen.main.bounds)
         backgroundView.backgroundColor = UIColor.black
         backgroundView.alpha = 0.0
-   
+        
         containerView.addSubview(toViewController.view)
         toViewController.view.alpha = 0.0
         containerView.addSubview(backgroundView)
         containerView.addSubview(photoImageView)
         
-        let photoVC = toViewController as! PhotoViewController
-        let newFrame = photoVC.photoImageVIiew.frame
-
+        
+        if let photoVC = toViewController as? PhotoViewController {
+            photoImageViewFromVC = photoVC.photoImageView
+        } else if let photoVC = fromViewController as? PhotoViewController {
+            photoImageViewFromVC = photoVC.photoImageView
+        }
+        
+        if (isPresenting) {
+            backgroundView.alpha = 1.0
+            fromVC.alpha = 0.0
+            photoImageView.frame = photoImageViewFromVC.frame
+        }
+        
         UIView.animate(withDuration: transitionDuration(using: transitionContext), animations: { [weak self] in
             
             guard let strongSelf = self else { return }
-            backgroundView.alpha = 1.0
-            photoImageView.frame = newFrame
+            if (strongSelf.isPresenting) {
+                backgroundView.alpha = 0.0
+                toVC.alpha = 1.0
+                guard let selectedFrame = self?.selectedFrame else { return }
+                photoImageView.frame = selectedFrame
+            } else {
+                backgroundView.alpha = 1.0
+                photoImageView.frame = photoImageViewFromVC.frame
+            }
             
-        }) { (isFinished) in
-            fromViewController.view.alpha = 0.0
-            toViewController.view.alpha = 1.0
-            backgroundView.removeFromSuperview()
-            photoImageView.removeFromSuperview()
-            transitionContext.completeTransition(isFinished)
+        }) { [weak self] (isFinished) in
+            
+            guard let strongSelf = self else { return }
+            if (strongSelf.isPresenting) {
+                transitionContext.completeTransition(isFinished)
+            } else {
+                fromVC.alpha = 0.0
+                toVC.alpha = 1.0
+                backgroundView.removeFromSuperview()
+                photoImageView.removeFromSuperview()
+                transitionContext.completeTransition(isFinished)
+            }
         }
     }
     
