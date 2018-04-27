@@ -10,11 +10,13 @@ import UIKit
 
 class PhotoTransition: NSObject, UIViewControllerAnimatedTransitioning {
     
-    let durationTime = 2.0
+    let durationTime = 0.5
     var currentCell: PhotoCollectionViewCell?
     var currentImage: UIImage?
     var selectedFrame: CGRect?
     var isPresenting = false
+    let zero = CGFloat(0.0)
+    let one = CGFloat(1.0)
     
     func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
         return durationTime
@@ -34,10 +36,10 @@ class PhotoTransition: NSObject, UIViewControllerAnimatedTransitioning {
         
         let backgroundView = UIView(frame: UIScreen.main.bounds)
         backgroundView.backgroundColor = UIColor.black
-        backgroundView.alpha = 0.0
+        backgroundView.alpha = CGFloat(zero)
         
         containerView.addSubview(toViewController.view)
-        toViewController.view.alpha = 0.0
+        toViewController.view.alpha = zero
         containerView.addSubview(backgroundView)
         containerView.addSubview(photoImageView)
         
@@ -49,8 +51,8 @@ class PhotoTransition: NSObject, UIViewControllerAnimatedTransitioning {
         }
         
         if (isPresenting) {
-            backgroundView.alpha = 1.0
-            fromVC.alpha = 0.0
+            backgroundView.alpha = one
+            fromVC.alpha = zero
             photoImageView.frame = photoImageViewFromVC.frame
         }
         
@@ -58,12 +60,12 @@ class PhotoTransition: NSObject, UIViewControllerAnimatedTransitioning {
             
             guard let strongSelf = self else { return }
             if (strongSelf.isPresenting) {
-                backgroundView.alpha = 0.0
-                toVC.alpha = 1.0
+                backgroundView.alpha = strongSelf.zero
+                toVC.alpha = strongSelf.one
                 guard let selectedFrame = self?.selectedFrame else { return }
                 photoImageView.frame = selectedFrame
             } else {
-                backgroundView.alpha = 1.0
+                backgroundView.alpha = strongSelf.one
                 photoImageView.frame = photoImageViewFromVC.frame
             }
             
@@ -73,8 +75,8 @@ class PhotoTransition: NSObject, UIViewControllerAnimatedTransitioning {
             if (strongSelf.isPresenting) {
                 transitionContext.completeTransition(isFinished)
             } else {
-                fromVC.alpha = 0.0
-                toVC.alpha = 1.0
+                fromVC.alpha = strongSelf.zero
+                toVC.alpha = strongSelf.one
                 backgroundView.removeFromSuperview()
                 photoImageView.removeFromSuperview()
                 transitionContext.completeTransition(isFinished)

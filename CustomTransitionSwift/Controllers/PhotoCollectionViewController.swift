@@ -18,15 +18,11 @@ class PhotoCollectionViewController: UICollectionViewController, UICollectionVie
     let startImageNameNumber = 0
     let endImageNameNumber = 5
     var photoTransition = PhotoTransition()
+    var customInteractor = CustomInteractor()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        for i in startImageNameNumber...endImageNameNumber {
-            guard let image = UIImage(named: "\(i)") else { return }
-            images.append(image)
-        }
-   
+        initImageArray()
         self.navigationController?.delegate = self
         prepareCollectionView()
     }
@@ -34,6 +30,13 @@ class PhotoCollectionViewController: UICollectionViewController, UICollectionVie
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(false, animated: true)
+    }
+    
+    func initImageArray(){
+        for i in startImageNameNumber...endImageNameNumber {
+            guard let image = UIImage(named: "\(i)") else { return }
+            images.append(image)
+        }
     }
 
     func prepareCollectionView() {
@@ -47,7 +50,6 @@ class PhotoCollectionViewController: UICollectionViewController, UICollectionVie
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
-
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return images.count
@@ -104,8 +106,22 @@ extension PhotoCollectionViewController: UINavigationControllerDelegate {
 
     func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationControllerOperation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
        
-        photoTransition.isPresenting = (operation == .pop)
-        return photoTransition
+        switch operation {
+        case .push:
+            guard let toVC = toVC as? PhotoViewController else { return nil}
+            self.customInteractor.attach(to: toVC)
+            photoTransition.isPresenting = false
+            return photoTransition
+        default:
+            photoTransition.isPresenting = true
+            return photoTransition
+        }
+  
+    }
+    
+
+    func navigationController(_ navigationController: UINavigationController, interactionControllerFor animationController: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
+        return customInteractor.transitionInProgress ? customInteractor : nil
     }
     
 }

@@ -10,6 +10,8 @@ import UIKit
 
 class PhotoViewController: UIViewController {
 
+    let navigationItemTitle = ""
+    
     @IBOutlet weak var photoImageView: UIImageView!
     var photo: UIImage!
     
@@ -32,7 +34,7 @@ class PhotoViewController: UIViewController {
         navigationBar.isTranslucent = true
         self.view.addSubview(navigationBar)
         let cancelButton = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(close))
-        let navigationBarItem = UINavigationItem(title: "Test")
+        let navigationBarItem = UINavigationItem(title: navigationItemTitle)
         navigationBarItem.leftBarButtonItem = cancelButton
         navigationBar.setItems([navigationBarItem], animated: true)
     }
